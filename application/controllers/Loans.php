@@ -34,7 +34,8 @@ class Loans extends CI_Controller {
 			$this->load->helper('form');
 			$this->load->library('form_validation');
 			
-			$this->form_validation->set_rules('equip_name', 'Equipment Name', 'required');			
+			$this->form_validation->set_rules('equip_name', 'Equipment Name', 'required');
+			$this->form_validation->set_rules('loan_email', 'Email Address', 'required');			
 
 			if ($this->form_validation->run() === FALSE)
 			{
@@ -46,9 +47,35 @@ class Loans extends CI_Controller {
 			else
 			{
 				$this->loans_model->set_loans();
-				$this->load->view('templates/header');
-				$this->load->view('loans/success');
-				$this->load->view('templates/footer');
+				$this->index();
+			}
+		}
+		
+		public function get_loan_item($id)
+		{
+			$this->load->helper('form');
+			
+			$data['loan_item'] = $this->loans_model->get_loan_item($id);
+			$this->load->view('templates/header');
+			$this->load->view('loans/loan_item',$data);
+			$this->load->view('templates/footer');
+		}
+		
+		public function return_loan_item()
+		{
+			$this->load->library('form_validation');
+			$this->load->helper('form');
+			
+			$this->form_validation->set_rules('return_by', 'Return By', 'required');
+			$this->form_validation->set_rules('receive_by', 'Received By', 'required');
+			
+			if ($this->form_validation->run() === FALSE)
+			{
+				$this->get_loan_item($id);
+			}
+			else
+			{
+				$this->loans_model->return_loan_item($id);
 			}
 		}
 }

@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="main-panel container-fluid">
 
 <?php if(validation_errors()) { ?>
 	<div class="alert alert-danger">
@@ -26,7 +26,7 @@
 			<label class="control-label pull-right" for="serial_num">Serial Number:<span class="glyphicon glyphicon-barcode">&nbsp;</span></label>
 		</div>
 		<div class="col-sm-4 form-group">
-			<input type="text" class="form-control" name="serial_num" />
+			<input type="text" class="form-control" name="serial_num"  placeholder="Serial Number" />
 		</div>
 	</div>
 	<div class="row">
@@ -43,6 +43,14 @@
 		</div>
 		<div class="col-sm-4 form-group">
 			<input type="text" class="form-control" name="loan_by" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 form-group">
+			<label class="pull-right" for="title">Email Address:<span class="glyphicon glyphicon-user">&nbsp;</span></label>
+		</div>
+		<div class="col-sm-4 form-group">
+			<input type="text" class="form-control" name="loan_email"  placeholder="Email Address"/>
 		</div>
 	</div>
 	<div class="row">
@@ -88,7 +96,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-12 form-group">
+		<div class="col-sm-12 form-group text-center">
 		<input type="submit" class="btn btn-info" name="submit" value="Submit" />
 		</div>
 	</div>

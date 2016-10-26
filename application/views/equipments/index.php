@@ -1,3 +1,4 @@
+<div class="main-panel container-fluid">
 	<table class="table table-striped">
 		<thead>
 		  <tr>
@@ -43,4 +44,5 @@
 	</div>
 	</form>
 	</div>
+</div>
 

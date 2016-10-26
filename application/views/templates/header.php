@@ -39,8 +39,7 @@
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="/equipments">Equipment Type</a></li>
-							<li><a href="#">Accessories</a></li>
+							<li><a href="/equipments">Equipment Type</a></li>							
 						</ul>
 					</li>
 				  </ul>

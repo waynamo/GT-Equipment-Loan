@@ -3,7 +3,14 @@
       line-height: 1.8;
       color: #f5f6f7;
   }
-    .bg-1 { 
+  .bg-1 { 
       background-color: #000; 
       color: #ffffff;
+  }
+  .bg-4 { 
+      background-color: #EFEFEF; 
+      
+  }
+  .main-panel {
+	  width: 70%;	  
   }
