@@ -13,7 +13,7 @@ class Equipments extends CI_Controller {
 				$this->load->helper('form');
 				$data['equipments'] = $this->equipments_model->get_equipments();
 			
-				$this->load->view('templates/header', $data);
+				$this->load->view('templates/header');
 				$this->load->view('equipments/index', $data);
 				$this->load->view('templates/footer');				
 		}
@@ -33,5 +33,11 @@ class Equipments extends CI_Controller {
 				{
 					$this->index();
 				}
+		}
+		
+		public function delete($id)
+		{
+				$this->equipments_model->remove_equipments($id);
+				$this->index();
 		}
 }

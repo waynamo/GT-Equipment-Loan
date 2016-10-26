@@ -8,7 +8,9 @@ class Equipments_model extends CI_Model {
 		
 		public function get_equipments()
 		{
-                $query = $this->db->get('equipments');
+				$this->db->order_by('equip_name');
+				$query = $this->db->get('equipments');
+				
                 return $query->result_array();
         }
 		
@@ -18,5 +20,10 @@ class Equipments_model extends CI_Model {
 				'equip_name' => $this->input->post('equip_name')
 			);			
 			return $this->db->insert('equipments', $data);
+		}
+		
+		public function remove_equipments($id)
+		{
+			$this->db->delete('equipments', array('id' => $id)); 
 		}
 }

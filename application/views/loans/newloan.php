@@ -1,13 +1,24 @@
 <div class="text-center">
 
+<?php if(validation_errors()) { ?>
+	<div class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	 <?php echo validation_errors();?>
+	</div>
+<?php }?>
+
 <?php echo form_open('loans/create','class="form-horizontal"'); ?>
 	
 	<div class="row">
         <div class="col-sm-6 form-group">
 			<label class="control-label pull-right" for="equip_type">Equipment Type:<span class="glyphicon glyphicon-cog">&nbsp;</span></label>
 		</div>
-		<div class="col-sm-4 form-group">
-			<input type="text" class="form-control" size="50" name="equip_type" />
+		<div class="col-sm-4 form-group">			
+			<select class="form-control" name="equip_name">
+			<?php foreach ($equipments as $equipments_item): ?>	
+					<option><?php echo $equipments_item['equip_name']; ?></option>
+			<?php endforeach; ?>
+			</select>
 		</div>
 	</div>
 	<div class="row">
@@ -16,14 +27,6 @@
 		</div>
 		<div class="col-sm-4 form-group">
 			<input type="text" class="form-control" name="serial_num" />
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-6 form-group">
-			<label class="pull-right" for="title">Accessories:&nbsp;</label>
-		</div>
-		<div class="col-sm-4 form-group">
-			<input type="text" class="form-control" name="equip_accs" />
 		</div>
 	</div>
 	<div class="row">
@@ -50,6 +53,7 @@
 			<input type="text" class="form-control" name="issue_by" />
 		</div>
 	</div>
+	<!--
 	<div class="row">
 		<div class="col-sm-6 form-group">
 			<label class="pull-right" for="title">Return Date:<span class="glyphicon glyphicon-calendar">&nbsp;</span></label>
@@ -74,6 +78,7 @@
 			<input type="text" class="form-control" name="receive_by" />
 		</div>
 	</div>
+	-->
 	<div class="row">
 		<div class="col-sm-6 form-group">
 			<label class="pull-right" for="title">Remarks:<span class="glyphicon glyphicon-pencil">&nbsp;</span></label>
