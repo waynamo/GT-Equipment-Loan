@@ -9,9 +9,10 @@ class Loans extends CI_Controller {
                 $this->load->helper('url_helper');
         }
 
-		public function index()
+		public function index($msg=NULL)
 		{
 				$data['loans'] = $this->loans_model->get_loans();				
+				$data['msg'] = $msg;
 				
 				$this->load->view('templates/header');
 				$this->load->view('loans/index',$data);
@@ -27,7 +28,15 @@ class Loans extends CI_Controller {
 				$this->load->view('loans/newloan',$data);
 				$this->load->view('templates/footer');
         }
-
+		
+		public function returned()
+		{
+				$data['loans'] = $this->loans_model->get_returns();								
+				
+				$this->load->view('templates/header');
+				$this->load->view('loans/returned',$data);
+				$this->load->view('templates/footer');		
+		}
 		
 		public function create()
 		{			
@@ -66,6 +75,8 @@ class Loans extends CI_Controller {
 			$this->load->library('form_validation');
 			$this->load->helper('form');
 			
+			$id = $this->input->post('id');			
+			
 			$this->form_validation->set_rules('return_by', 'Return By', 'required');
 			$this->form_validation->set_rules('receive_by', 'Received By', 'required');
 			
@@ -76,6 +87,8 @@ class Loans extends CI_Controller {
 			else
 			{
 				$this->loans_model->return_loan_item($id);
+				$msg = "Loan item returned. Thank you.";
+				$this->index($msg);
 			}
 		}
 }

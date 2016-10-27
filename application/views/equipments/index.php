@@ -1,4 +1,5 @@
 <div class="main-panel container-fluid">
+<h3>Equipment Lists</h3>
 	<table class="table table-striped">
 		<thead>
 		  <tr>
@@ -15,7 +16,9 @@
 			<td><?php echo $equipments_item['id'];?></td>
 			<td><?php echo $equipments_item['equip_name']; ?></td>
 			<td><?php echo $equipments_item['date_added']; ?></td>
-			<td><a href="/equipments/delete/<?php echo $equipments_item['id'];?>" class="btn btn-danger" role="button">Delete</a></td>	
+			<td><a href="/equipments/get_equip/<?php echo $equipments_item['id'];?>" class="btn btn-info" role="button">Edit</a>
+				<a href="/equipments/delete/<?php echo $equipments_item['id'];?>" class="btn btn-danger" role="button">Delete</a>
+			</td>	
 		</tr>
 		<?php endforeach; ?>
 		<?php if(empty($equipments[0])){?>

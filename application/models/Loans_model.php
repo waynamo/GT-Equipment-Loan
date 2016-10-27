@@ -8,10 +8,18 @@ class Loans_model extends CI_Model {
 		
 		public function get_loans()
 		{
-				$this->db->where('return_date IS NULL');
-                $query = $this->db->get('loans');				
-                return $query->result_array();
+			$this->db->where('return_date IS NULL');
+            $query = $this->db->get('loans');				
+            return $query->result_array();
         }
+		
+		public function get_returns()
+		{
+			$this->db->where('return_date IS NOT NULL');
+			$this->db->order_by('return_date DESC');
+            $query = $this->db->get('loans');				
+            return $query->result_array();			
+		}
 		
 		public function set_loans()
 		{
@@ -36,16 +44,14 @@ class Loans_model extends CI_Model {
 			return $query->row_array();
 		}
 		
-		public function return_loan_item()
+		public function return_loan_item($id)
 		{
-			$id = $this->input->post('id');
-			
 			$data = array(
 				'return_date' => date('Y-m-d'),
 				'return_by' => $this->input->post('return_by'),
 				'receive_by' => $this->input->post('receive_by')
 			);
-			$this->db-where('id', $id);
+			$this->db->where('id', $id);
 			return $this->db->update('loans', $data);
 		}
 		

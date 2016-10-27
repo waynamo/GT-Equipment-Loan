@@ -33,9 +33,13 @@
 				</div>
 				
 				  <ul class="nav navbar-nav navbar-right">
-					<li><a href="/loans/newloan">New Loan</a></li>
-					<li><a href="#">Return</a></li>
-					<li><a href="#">Reports</a></li>
+					<li><a href="/loans/newloan">New Loan</a></li>					
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/loans/returned">Returned Items</a></li>							
+						</ul>
+					</li>
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
 						<ul class="dropdown-menu">
