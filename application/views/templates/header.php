@@ -43,7 +43,8 @@
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="/equipments">Equipment Type</a></li>							
+							<li><a href="/equipments">Equipment Type</a></li>
+							<li><a href="/app_users">Users Management</a></li>							
 						</ul>
 					</li>
 				  </ul>
