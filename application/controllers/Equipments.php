@@ -22,7 +22,9 @@ class Equipments extends CI_Controller {
 		{				
 				$this->load->library('form_validation');
 
-				$this->form_validation->set_rules('equip_name', 'Equipment Name', 'required');
+				$this->form_validation->set_rules('equip_name', 'Equipment Name', 'required|is_unique[equipments.equip_name]',
+					array('is_unique' => 'Equipment already exist. Please check.')
+				);
 								
 				if ($this->form_validation->run() === TRUE)
 				{
@@ -48,7 +50,9 @@ class Equipments extends CI_Controller {
 		public function edit()
 		{		
 				$this->load->library('form_validation');
-				$this->form_validation->set_rules('equip_name', 'Equipment Name', 'required');
+				$this->form_validation->set_rules('equip_name', 'Equipment Name', 'required|is_unique[equipments.equip_name]',
+					array('is_unique' => 'Equipment already exist. Please check.')
+				);
 				
 				if ($this->form_validation->run() === TRUE)
 				{

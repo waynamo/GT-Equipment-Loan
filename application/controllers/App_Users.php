@@ -25,9 +25,21 @@ class App_Users extends CI_Controller {
 			$this->load->view('templates/footer');			
 		}
 		
+		public function get_user($id)
+		{
+			$this->load->helper('form');
+			$data['users'] = $this->app_users_model->get_user($id);
+			
+			$this->load->view('templates/header');
+			$this->load->view('app_users/add_user',$data);
+			$this->load->view('templates/footer');			
+		}
+		
 		public function create_user()
 		{
-			$this->form_validation->set_rules('username', 'Username', 'required');
+			$this->form_validation->set_rules('username', 'Username', 'required|is_unique[app_users.username]',
+				array('is_unique' => 'Username exist already. Please check.')
+			);
 			$this->form_validation->set_rules('firstname', 'First name', 'required');
 			$this->form_validation->set_rules('lastname', 'Last name', 'required');
 			$this->form_validation->set_rules('email_address', 'Email Address', 'required');

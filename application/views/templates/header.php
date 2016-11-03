@@ -29,7 +29,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  <a class="navbar-brand" href="/">Home</a>
+				  <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a>
 				</div>
 				
 				  <ul class="nav navbar-nav navbar-right">
@@ -47,6 +47,7 @@
 							<li><a href="/app_users">Users Management</a></li>							
 						</ul>
 					</li>
+					<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Logout</a></li>
 				  </ul>
 				
 			  </div>

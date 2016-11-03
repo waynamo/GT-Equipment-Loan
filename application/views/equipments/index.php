@@ -1,4 +1,12 @@
 <div class="main-panel container-fluid">
+
+<?php if(validation_errors()) { ?>
+	<div class="alert alert-danger">
+	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	 <?php echo validation_errors();?>
+	</div>
+<?php }?>
+
 <h3>Equipment Lists</h3>
 	<table class="table table-striped">
 		<thead>
