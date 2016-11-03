@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2016 at 04:54 PM
+-- Generation Time: Nov 03, 2016 at 04:51 PM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -42,9 +42,9 @@ CREATE TABLE `app_users` (
 --
 
 INSERT INTO `app_users` (`id`, `username`, `password`, `firstname`, `lastname`, `email_address`, `date_created`, `date_lastchanged`) VALUES
-(8, 'apac\\wongwaic', NULL, 'Wai Chong', 'Wong', 'waichong.wong@ihg.com', '2016-11-02 16:53:00', NULL),
-(7, 'apac\\wongwaic', NULL, 'Wai Chong', 'Wong', 'waichong.wong@ihg.com', '2016-11-02 16:53:00', NULL),
-(6, 'apac\\wongwaic', NULL, 'Wai Chong', 'Wong', 'waichong.wong@ihg.com', '2016-11-02 04:52:00', NULL);
+(12, 'APAC\\CincoC', NULL, 'Carlos', 'Cinco', 'carlos.cinco@ihg.com', '2016-11-03 16:16:00', NULL),
+(11, 'APAC\\wongwaic', NULL, 'Wai Chong', 'Wong', 'waichong.wong@ihg.com', '2016-11-03 14:11:00', NULL),
+(10, 'APAC\\YongBe', NULL, 'Bernard', 'Yong', 'bernard.yong@ihg.com', '2016-11-03 14:05:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -160,7 +160,7 @@ ALTER TABLE `loans`
 -- AUTO_INCREMENT for table `app_users`
 --
 ALTER TABLE `app_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `equipments`
 --
