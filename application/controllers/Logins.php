@@ -5,7 +5,8 @@ class Logins extends CI_Controller {
         {
 			parent::__construct();
 			$this->load->helper('url_helper');
-			//$this->load->model('logins_model');			
+			//$this->load->model('logins_model');
+			$this->load->library('session');			
         }
 		
 		public function index($msg=NULL)
@@ -41,6 +42,13 @@ class Logins extends CI_Controller {
 					// verify binding
 					if ($ldapbind) {
 						//echo "LDAP bind successful...";
+						$login_data = array(
+								'username'  => $ldaprdn,								
+								'logged_in' => TRUE
+						);
+
+						$this->session->set_userdata($login_data);
+						
 						redirect('loans/index');
 					} else {
 						$msg = "Login failed.";

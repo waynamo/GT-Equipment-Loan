@@ -7,6 +7,7 @@ class Loans extends CI_Controller {
                 $this->load->model('loans_model');
 				$this->load->model('equipments_model');
                 $this->load->helper('url_helper');
+				$this->load->library('session');
         }
 
 		public function index($msg=NULL)

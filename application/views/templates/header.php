@@ -29,7 +29,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a>
+				  <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a><span class="navbar-brand">Welcome, <?php isset($_SESSION['username'])?$_SESSION['username']:null ?></span>
 				</div>
 				
 				  <ul class="nav navbar-nav navbar-right">
