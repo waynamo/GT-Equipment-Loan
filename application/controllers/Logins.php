@@ -44,7 +44,8 @@ class Logins extends CI_Controller {
 						//echo "LDAP bind successful...";
 						$login_data = array(
 								'username'  => $ldaprdn,								
-								'logged_in' => TRUE
+								'logged_in' => TRUE,
+								'login_page' => FALSE
 						);
 
 						$this->session->set_userdata($login_data);
