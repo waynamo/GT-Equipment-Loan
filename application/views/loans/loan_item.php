@@ -24,6 +24,9 @@
 		<tr>
 			<td>Remarks:</td><td><?php if($loan_item['remarks']!='')echo $loan_item['remarks']; else echo "No remarks."; ?></td>	
 		</tr>		
+		<tr>
+			<td>Photos:</td><td><img src="/uploads/<?php echo $loan_item['file_name']?>" class="img-thumbnail" width="304" height="236" ></td>	
+		</tr>
         </tbody>
 	</table>
 	<br />

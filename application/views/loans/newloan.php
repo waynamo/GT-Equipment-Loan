@@ -7,7 +7,7 @@
 	</div>
 <?php }?>
 
-<?php echo form_open('loans/create','class="form-horizontal"'); ?>
+<?php echo form_open_multipart('loans/create','class="form-horizontal"'); ?>
 	
 	<div class="row">
         <div class="col-sm-6 form-group">
@@ -27,6 +27,14 @@
 		</div>
 		<div class="col-sm-4 form-group">
 			<input type="text" class="form-control" name="serial_num"  placeholder="Serial Number" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 form-group">
+			<label class="control-label pull-right" for="serial_num">Upload File:<span class="glyphicon glyphicon-barcode">&nbsp;</span></label>
+		</div>
+		<div class="col-sm-4 form-group">
+			<input type="file" class="form-control" name="hardware_image" />
 		</div>
 	</div>
 	<div class="row">

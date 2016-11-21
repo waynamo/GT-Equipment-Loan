@@ -21,7 +21,7 @@ class Loans_model extends CI_Model {
             return $query->result_array();			
 		}
 		
-		public function set_loans()
+		public function set_loans($file_name=NULL)
 		{
 			$this->load->helper('url');
 
@@ -32,10 +32,12 @@ class Loans_model extends CI_Model {
 				'loan_by' => $this->input->post('loan_by'),
 				'loan_email' => $this->input->post('loan_email'),
 				'issue_by' => $this->input->post('issue_by'),
-				'remarks' => $this->input->post('remarks')
+				'remarks' => $this->input->post('remarks'),
+				'file_name' => $file_name
 			);
 			
 			return $this->db->insert('loans', $data);
+			
 		}
 
 		public function get_loan_item($id)

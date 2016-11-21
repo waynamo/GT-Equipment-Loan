@@ -4,7 +4,9 @@
                 <title>AMEA GT Equipment Loan</title>
 				<meta charset="utf-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1">
-				
+				<meta name="apple-mobile-web-app-capable" content="yes">				 
+				<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+								
 				<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/styles.css'); ?>">
 				<link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet">
 				<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -29,10 +31,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </button>
-				  <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a><span class="navbar-brand">Welcome, <?php isset($_SESSION['username'])?$_SESSION['username']:'Who Are You' ?></span>
+				  <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a>
 				</div>
 				
-				  <ul class="nav navbar-nav navbar-right">
+				  <ul class="nav navbar-nav navbar-right">					
 					<li><a href="/loans/newloan">New Loan</a></li>					
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>

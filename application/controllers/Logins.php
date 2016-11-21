@@ -14,7 +14,7 @@ class Logins extends CI_Controller {
 			$this->load->library('form_validation');
 			$data['msg'] = $msg;
 			
-			$this->load->view('templates/header');
+			$this->load->view('templates/header-login');
 			$this->load->view('logins/index',$data);
 			$this->load->view('templates/footer');
 		}

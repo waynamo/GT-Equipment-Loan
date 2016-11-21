@@ -6,8 +6,8 @@ class Loans extends CI_Controller {
                 parent::__construct();
                 $this->load->model('loans_model');
 				$this->load->model('equipments_model');
-                $this->load->helper('url_helper');
-				$this->load->library('session');
+                $this->load->helper('form','url_helper');
+				$this->load->library('session','form_validation');
         }
 
 		public function index($msg=NULL)
@@ -40,10 +40,9 @@ class Loans extends CI_Controller {
 		}
 		
 		public function create()
-		{			
-			$this->load->helper('form');
+		{					
 			$this->load->library('form_validation');
-			
+		
 			$this->form_validation->set_rules('equip_name', 'Equipment Name', 'required');
 			$this->form_validation->set_rules('loan_email', 'Email Address', 'required');			
 
@@ -55,8 +54,28 @@ class Loans extends CI_Controller {
 
 			}
 			else
-			{
-				$this->loans_model->set_loans();
+			{			
+				
+				//Upload Files
+				$config['upload_path']          = './uploads/';
+                $config['allowed_types']        = 'gif|jpg|png|pdf';
+                $config['max_size']             = 0;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+				
+				//$new_name = $_FILES["hardware_image"]['name'].$loan_id;
+				//$config['file_name'] = $loan_id;
+
+                $this->load->library('upload', $config);
+				
+				if ($this->upload->do_upload('hardware_image'))
+                {									
+					$data = array('upload_data' => $this->upload->data());
+					$file_name = $data['upload_data']['file_name'];					
+                }
+				//------------------------------
+				
+				$loan_id = $this->loans_model->set_loans($file_name);
 				$this->index();
 			}
 		}
