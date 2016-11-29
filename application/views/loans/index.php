@@ -37,3 +37,11 @@
         </tbody>
 	</table>
 </div>
+
+<div class="main-panel container-fluid text-center">
+	<?php if(!empty($pages)){?>
+		
+			<?php echo($pages);?>
+		
+	<?php } ?>
+</div>

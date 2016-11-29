@@ -6,19 +6,36 @@ class Loans_model extends CI_Model {
                 $this->load->database();
         }
 		
-		public function get_loans()
+		public function get_loans($limit, $start)
 		{
-			$this->db->where('return_date IS NULL');
+			$this->db->limit($limit, $start);
+			$this->db->where('return_date IS NULL');			
             $query = $this->db->get('loans');				
             return $query->result_array();
         }
 		
-		public function get_returns()
+		public function get_returns($limit, $start)
 		{
+			$this->db->limit($limit, $start);
 			$this->db->where('return_date IS NOT NULL');
 			$this->db->order_by('return_date DESC');
             $query = $this->db->get('loans');				
             return $query->result_array();			
+		}
+		
+		public function get_record_count($type)
+		{			
+			if($type == 'returned')
+			{
+				$this->db->where('return_date IS NOT NULL');			
+			}
+			if($type == 'onloan')
+			{
+				$this->db->where('return_date IS NULL');			
+			}
+			$query = $this->db->get('loans');			
+			return $query->num_rows();
+			
 		}
 		
 		public function set_loans($file_name=NULL)

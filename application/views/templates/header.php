@@ -32,6 +32,7 @@
 					<span class="icon-bar"></span>
 				  </button>
 				  <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a>
+				  <a class="navbar-brand" href="javascript:window.location.reload(true)"><span class="glyphicon glyphicon-repeat"></span>&nbsp;</a>
 				</div>
 				
 				  <ul class="nav navbar-nav navbar-right">					

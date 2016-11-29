@@ -30,7 +30,14 @@
 		<tr>
 			<td colspan="3">No records.</td>
 		</tr>
-		<?php } ?>
+		<?php } ?>			
         </tbody>
 	</table>
+</div>
+<div class="main-panel container-fluid text-center">
+	<?php if(!empty($pages)){?>
+		
+			<?php echo($pages);?>
+		
+	<?php } ?>
 </div>

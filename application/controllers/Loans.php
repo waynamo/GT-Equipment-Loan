@@ -8,11 +8,26 @@ class Loans extends CI_Controller {
 				$this->load->model('equipments_model');
                 $this->load->helper('form','url_helper');
 				$this->load->library('session','form_validation');
+							
         }
 
 		public function index($msg=NULL)
 		{
-				$data['loans'] = $this->loans_model->get_loans();				
+				$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;	
+				$this->load->library('pagination');				
+				
+				$config['base_url'] =  base_url().'/loans/index/';
+				$config['total_rows'] = $this->loans_model->get_record_count('onloan');				
+				$config['per_page'] = 10;
+				$config["uri_segment"] = 3;
+				$config['first_link'] = 'First';
+				$config['last_link'] = 'Last';
+				
+				/* Initialize the pagination library with the config array */
+				$this->pagination->initialize($config);			
+								
+				$data['pages'] = $this->pagination->create_links();				
+				$data['loans'] = $this->loans_model->get_loans($config['per_page'],$page);				
 				$data['msg'] = $msg;
 				
 				$this->load->view('templates/header');
@@ -32,8 +47,22 @@ class Loans extends CI_Controller {
 		
 		public function returned()
 		{
-				$data['loans'] = $this->loans_model->get_returns();								
+				$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;	
+				$this->load->library('pagination');				
 				
+				$config['base_url'] =  base_url().'/loans/returned/';
+				$config['total_rows'] = $this->loans_model->get_record_count('returned');
+				$config['per_page'] = 10;
+				$config["uri_segment"] = 3;
+				$config['first_link'] = 'First';
+				$config['last_link'] = 'Last';
+								
+				/* Initialize the pagination library with the config array */
+				$this->pagination->initialize($config);			
+								
+				$data['loans'] = $this->loans_model->get_returns($config['per_page'],$page);	
+				$data['pages'] = $this->pagination->create_links();	
+												
 				$this->load->view('templates/header');
 				$this->load->view('loans/returned',$data);
 				$this->load->view('templates/footer');		
