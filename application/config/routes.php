@@ -59,6 +59,7 @@ $route['logout'] = 'logouts/logout';
 $route['default_controller'] = 'loans';
 //$route['404_override'] = '';
 //$route['translate_uri_dashes'] = FALSE;
+//$route['loans/(:num)'] = 'loans/index/$1';
 
 
 

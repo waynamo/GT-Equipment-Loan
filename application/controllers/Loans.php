@@ -13,7 +13,8 @@ class Loans extends CI_Controller {
 
 		public function index($msg=NULL)
 		{
-				$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;	
+				$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+				$msg = ($this->uri->segment(3)) ? "" : $msg;
 				$this->load->library('pagination');				
 				
 				$config['base_url'] =  base_url().'/loans/index/';
