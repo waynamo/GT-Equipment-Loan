@@ -33,4 +33,10 @@ class App_Users_model extends CI_Model {
 			return $this->db->insert('app_users', $data);			
 		}
 		
+		public function check_authorized_user($username)
+		{
+			$query = $this->db->get_where('app_users',array('username' => $username));		
+			return $query->row_array();				
+		}
+		
 }

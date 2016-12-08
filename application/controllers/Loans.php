@@ -5,7 +5,7 @@ class Loans extends CI_Controller {
         {
                 parent::__construct();
                 $this->load->model('loans_model');
-				$this->load->model('equipments_model');
+				$this->load->model('equipments_model');				
                 $this->load->helper('form','url_helper');
 				$this->load->library('session','form_validation');
 							

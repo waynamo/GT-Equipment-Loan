@@ -73,5 +73,5 @@ class Loans_model extends CI_Model {
 			$this->db->where('id', $id);
 			return $this->db->update('loans', $data);
 		}
-		
+				
 }

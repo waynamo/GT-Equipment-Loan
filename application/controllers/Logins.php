@@ -4,8 +4,8 @@ class Logins extends CI_Controller {
         public function __construct()
         {
 			parent::__construct();
-			$this->load->helper('url_helper');
-			//$this->load->model('logins_model');
+			$this->load->helper('url_helper');			
+			$this->load->model('App_Users_model');
 			$this->load->library('session');			
         }
 		
@@ -31,31 +31,40 @@ class Logins extends CI_Controller {
 			$this->form_validation->set_rules('password', 'Password', 'required');
 								
 			if ($this->form_validation->run() === TRUE)
-			{					
-				// connect to ldap server
-				$ldapconn = ldap_connect("haapsdosvrdc001");					
+			{	
+				//Check whether in authorized access list
+				if($this->App_Users_model->check_authorized_user($this->input->post('username'))) 
+				{
+					// connect to ldap server
+					$ldapconn = ldap_connect("haapsdosvrdc001");					
 
-				if ($ldapconn) {
-					// binding to ldap server
-					$ldapbind = ldap_bind($ldapconn, $ldaprdn, $ldappass);
+					if ($ldapconn) {
+						// binding to ldap server
+						$ldapbind = ldap_bind($ldapconn, $ldaprdn, $ldappass);
 
-					// verify binding
-					if ($ldapbind) {
-						//echo "LDAP bind successful...";
-						$login_data = array(
-								'username'  => $ldaprdn,								
-								'logged_in' => TRUE,
-								'login_page' => FALSE
-						);
+						// verify binding
+						if ($ldapbind) {
+							//echo "LDAP bind successful...";
+							$login_data = array(
+									'username'  => $ldaprdn,								
+									'logged_in' => TRUE,
+									'login_page' => FALSE
+							);
 
-						$this->session->set_userdata($login_data);
-						
-						redirect('loans/index');
-					} else {
-						$msg = "Login failed.";
-						$this->index($msg);
+							$this->session->set_userdata($login_data);
+							
+							redirect('loans/index');
+						} else {
+							$msg = "Login failed.";
+							$this->index($msg);
+						}
+
 					}
-
+				}
+				else
+				{
+					$msg = "Unauthorized login. Please request access from GT Team.";
+					$this->index($msg);
 				}
 			}
 			else
